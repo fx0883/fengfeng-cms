@@ -1,0 +1,44 @@
+server:
+  port: 6666
+
+# 数据源配置
+spring:
+  datasource:
+    username: root
+    password: 12345678
+    url: jdbc:mysql://127.0.0.1:3306/workoutdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    #mysql8版本以上驱动包指定新的驱动类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #   数据源其他配置, 在 DruidConfig配置类中手动绑定
+    initialSize: 8
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+
+mybatis-plus:
+
+  configuration:
+    map-underscore-to-camel-case: false
+  global-config:
+    db-config:
+      table-underline: false
+  mapper-locations: classpath:com/fengfeng/cms/api/mapper/xml/**.xml
+  type-aliases-package: com.fengfeng.cms.api.entity
+
+#  type-aliases-package: com.fengfeng.cms.api.entity # 扫描实体类包
+#  # xxxMapper.xml 文件路径
+#  mapper-locations: classpath:com/fengfeng/cms/api/mapper/xml/**.xml
+
+
+logging:
+  level:
+    com.fengfeng.cms.api.mapper: debug
+
+mengxuegu:
+  jwt:
+    config:
+      secretKey: fengfeng # 密钥
+      expires:  604800 # 单位秒，7天

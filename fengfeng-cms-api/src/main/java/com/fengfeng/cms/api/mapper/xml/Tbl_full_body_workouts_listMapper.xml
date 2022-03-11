@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fengfeng.cms.api.mapper.Tbl_full_body_workouts_listMapper">
+<!--    <select id="getWeekDaysData" resultType="Tbl_full_body_workouts_list" >-->
+<!--        SELECT-->
+<!--            any_value(workout_id),-->
+<!--            any_value(title),-->
+<!--            any_value(videoLink),-->
+<!--            any_value(description),-->
+<!--            any_value(time_type),-->
+<!--            any_value(time_beginner),-->
+<!--            any_value(time_intermidiate),-->
+<!--            any_value(time_advanced),-->
+<!--            any_value(day_name),-->
+<!--            any_value(week_name),-->
+<!--            any_value(level),-->
+<!--            any_value(is_completed),-->
+<!--            any_value(image),-->
+<!--            any_value(sort),-->
+<!--            any_value(defaultSort)-->
+<!--        FROM-->
+<!--            tbl_full_body_workouts_list-->
+<!--        WHERE-->
+<!--            day_name IN-->
+<!--            ('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28')-->
+<!--          AND-->
+<!--            week_name = 1 GROUP by day_name-->
+<!--    </select>-->
+
+    <select id="getWeekDaysData" resultType="Tbl_full_body_workouts_list" ><![CDATA[
+        SELECT
+            *
+        FROM
+            tbl_full_body_workouts_list
+                WHERE
+                    day_name IN
+                    ('01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28')
+                  AND
+                    week_name = #{strWeekName} GROUP by day_name
+    ]]></select>
+</mapper>

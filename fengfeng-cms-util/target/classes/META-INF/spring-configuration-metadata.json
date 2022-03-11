@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "cms.jwt.config",
+      "type": "com.fengfeng.cms.util.JwtUtil",
+      "sourceType": "com.fengfeng.cms.util.JwtUtil"
+    }
+  ],
+  "properties": [
+    {
+      "name": "cms.jwt.config.expires",
+      "type": "java.lang.Long",
+      "sourceType": "com.fengfeng.cms.util.JwtUtil",
+      "defaultValue": 0
+    },
+    {
+      "name": "cms.jwt.config.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.fengfeng.cms.util.JwtUtil"
+    }
+  ],
+  "hints": []
+}
